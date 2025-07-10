@@ -17,7 +17,7 @@ api_key = os.getenv('AMP_API_KEY')
 secret_key = os.getenv('AMP_SECRET_KEY')
 
 # 2. Set up URL and time range (yesterday)
-url = 'https://analytics.eu.amplitude.com/api/2/expot'
+url = 'https://analytics.eu.amplitude.com/api/2/export'
 
 yesterday = datetime.now() - timedelta(days=1)
 start_time = yesterday.strftime('%Y%m%dT00')

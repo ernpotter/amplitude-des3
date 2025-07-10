@@ -81,8 +81,3 @@ for root, _, files in os.walk(day_path):
             output_path = os.path.join(data_dir, json_filename)
             with gzip.open(gz_path, 'rb') as gz_file, open(output_path, 'wb') as out_file:
                 shutil.copyfileobj(gz_file, out_file)
-
-
-
-
-

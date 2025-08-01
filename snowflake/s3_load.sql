@@ -1,0 +1,19 @@
+USE DATABASE TIL_DATA_ENGINEERING;
+USE SCHEMA ep_dthree_staging;
+
+CREATE OR REPLACE TABLE amplitude_events_python (
+    raw VARIANT
+);
+
+SELECT *
+FROM amplitude_events_python;
+
+CREATE OR REPLACE FILE FORMAT ep_json_format
+    TYPE = 'JSON'
+    STRIP_OUTER_ARRAY = TRUE;
+
+
+COPY INTO AMPLITUDE_EVENTS_PYTHON
+FROM @ERIN_PYTHON_STAGE
+FILE_FORMAT = (FORMAT_NAME = ep_json_format)
+;

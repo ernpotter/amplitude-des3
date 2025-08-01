@@ -1,0 +1,346 @@
+version: 2
+
+sources:
+  - name: ep_dthree_staging
+    description: ""
+    tables:
+      - name: amplitude_events
+        description: ""
+        columns:
+          - name: '"_airbyte_raw_id"'
+            data_type: varchar
+            description: ""            
+
+          - name: _airbyte_extracted_at
+            data_type: timestamp_ntz
+            description: ""
+
+          - name: _airbyte_meta
+            data_type: variant
+            description: ""
+
+          - name: _airbyte_generation_id
+            data_type: number
+            description: ""
+
+          - name: app
+            data_type: number
+            description: ""
+
+          - name: dma
+            data_type: varchar
+            description: ""
+
+          - name: adid
+            data_type: varchar
+            description: ""
+
+          - name: city
+            data_type: varchar
+            description: ""
+
+          - name: data
+            data_type: varchar
+            description: ""
+
+          - name: idfa
+            data_type: varchar
+            description: ""
+
+          - name: plan
+            data_type: variant
+            description: ""
+
+          - name: '"uuid"'
+            data_type: varchar
+            description: ""
+            tests:
+              - not_null
+              - unique
+
+          - name: groups
+            data_type: varchar
+            description: ""
+
+          - name: paying
+            data_type: boolean
+            description: ""
+
+          - name: region
+            data_type: varchar
+            description: ""
+
+          - name: _schema
+            data_type: number
+            description: ""
+
+          - name: country
+            data_type: varchar
+            description: ""
+
+          - name: library
+            data_type: varchar
+            description: ""
+
+          - name: os_name
+            data_type: varchar
+            description: ""
+
+          - name: user_id
+            data_type: varchar
+            description: ""
+            tests:
+              - not_null
+              - unique
+
+          - name: event_id
+            data_type: number
+            description: ""
+            tests:
+              - not_null
+              - unique
+
+          - name: language
+            data_type: varchar
+            description: ""
+
+          - name: platform
+            data_type: varchar
+            description: ""
+
+          - name: data_type
+            data_type: varchar
+            description: ""
+
+          - name: device_id
+            data_type: varchar
+            description: ""
+
+          - name: source_id
+            data_type: varchar
+            description: ""
+
+          - name: _insert_id
+            data_type: varchar
+            description: ""
+
+          - name: event_time
+            data_type: timestamp_ntz
+            description: ""
+
+          - name: event_type
+            data_type: varchar
+            description: ""
+
+          - name: ip_address
+            data_type: varchar
+            description: ""
+
+          - name: os_version
+            data_type: varchar
+            description: ""
+
+          - name: partner_id
+            data_type: varchar
+            description: ""
+
+          - name: session_id
+            data_type: float
+            description: ""
+            tests:
+              - not_null
+              - unique
+
+          - name: _insert_key
+            data_type: varchar
+            description: ""
+
+          - name: device_type
+            data_type: varchar
+            description: ""
+
+          - name: sample_rate
+            data_type: variant
+            description: ""
+
+          - name: amplitude_id
+            data_type: number
+            description: ""
+            tests:
+              - not_null
+              - unique
+
+          - name: device_brand
+            data_type: varchar
+            description: ""
+
+          - name: device_model
+            data_type: varchar
+            description: ""
+
+          - name: location_lat
+            data_type: float
+            description: ""
+            
+          - name: location_lng
+            data_type: float
+            description: ""
+
+          - name: version_name
+            data_type: varchar
+            description: ""
+
+          - name: device_family
+            data_type: varchar
+            description: ""
+
+          - name: start_version
+            data_type: varchar
+            description: ""
+            
+          - name: device_carrier
+            data_type: varchar
+            description: ""
+
+          - name: processed_time
+            data_type: timestamp_ntz
+            description: ""
+
+          - name: user_properties
+            data_type: varchar
+            description: ""
+
+          - name: event_properties
+            data_type: varchar
+            description: ""
+
+          - name: group_properties
+            data_type: varchar
+            description: ""
+
+          - name: client_event_time
+            data_type: timestamp_ntz
+            description: ""
+
+          - name: client_upload_time
+            data_type: timestamp_ntz
+            description: ""
+
+          - name: server_upload_time
+            data_type: timestamp_ntz
+            description: ""
+
+          - name: user_creation_time
+            data_type: timestamp_ntz
+            description: ""
+
+          - name: device_manufacturer
+            data_type: varchar
+            description: ""
+
+          - name: amplitude_event_type
+            data_type: varchar
+            description: ""
+
+          - name: is_attribution_event
+            data_type: boolean
+            description: ""
+
+          - name: server_received_time
+            data_type: timestamp_ntz
+            description: ""
+
+          - name: global_user_properties
+            data_type: varchar
+            description: ""
+
+          - name: amplitude_attribution_ids
+            data_type: varchar
+            description: ""
+            tests:
+              - not_null
+              - unique
+
+      - name: amplitude_events_list
+        description: ""
+        columns:
+          - name: _airbyte_raw_id
+            data_type: varchar
+            description: ""
+            tests:
+              - not_null
+              - unique
+
+          - name: _airbyte_extracted_at
+            data_type: timestamp_ntz
+            description: ""
+
+          - name: _airbyte_meta
+            data_type: variant
+            description: ""
+
+          - name: _airbyte_generation_id
+            data_type: number
+            description: ""
+            tests:
+              - not_null
+              - unique
+
+          - name: id
+            data_type: float
+            description: ""
+            tests:
+              - not_null
+              - unique
+
+          - name: name
+            data_type: varchar
+            description: ""
+
+          - name: value
+            data_type: varchar
+            description: ""
+
+          - name: hidden
+            data_type: boolean
+            description: ""
+
+          - name: totals
+            data_type: float
+            description: ""
+
+          - name: deleted
+            data_type: boolean
+            description: ""
+
+          - name: display
+            data_type: varchar
+            description: ""
+
+          - name: autohidden
+            data_type: boolean
+            description: ""
+
+          - name: non_active
+            data_type: boolean
+            description: ""
+
+          - name: flow_hidden
+            data_type: boolean
+            description: ""
+
+          - name: in_waitroom
+            data_type: boolean
+            description: ""
+
+          - name: totals_delta
+            data_type: float
+            description: ""
+
+          - name: clusters_hidden
+            data_type: boolean
+            description: ""
+
+          - name: timeline_hidden
+            data_type: variant
+            description: ""

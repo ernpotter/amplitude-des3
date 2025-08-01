@@ -1,0 +1,141 @@
+version: 2
+
+models:
+  - name: amplitude_gold_events
+    description: "Enriched Amplitude events joined with session, device, and location context"
+    columns:
+      - name: event_id
+        data_type: varchar
+        description: "Primary key for each event"
+
+      - name: session_id
+        data_type: float
+        description: "Session identifier"
+
+      - name: session_event_order
+        data_type: varchar
+        description: "Event sequence within session"
+
+      - name: events_list_id
+        data_type: float
+        description: "Foreign key to events list"
+
+      - name: event_time
+        data_type: timestamp_ntz
+        description: "Timestamp of the event"
+
+      - name: user_properties_id
+        data_type: number
+        description: "Foreign key to user properties"
+
+      - name: event_properties_id
+        data_type: number
+        description: "Foreign key to event properties"
+
+      - name: event_name
+        data_type: varchar
+        description: "Name of the event"
+
+      - name: referrer
+        data_type: varchar
+        description: ""
+
+      - name: referring_domain
+        data_type: varchar
+        description: ""
+
+      - name: initial_utm_medium
+        data_type: varchar
+        description: ""
+
+      - name: initial_referring_domain
+        data_type: varchar
+        description: ""
+
+      - name: initial_utm_campaign
+        data_type: varchar
+        description: ""
+
+      - name: user_referrer
+        data_type: varchar
+        description: ""
+
+      - name: initial_utm_source
+        data_type: varchar
+        description: ""
+
+      - name: initial_referrer
+        data_type: varchar
+        description: ""
+
+      - name: user_referring_domain
+        data_type: varchar
+        description: ""
+
+      - name: session_user_id
+        data_type: varchar
+        description: "User ID from session data"
+
+      - name: session_device_id
+        data_type: number
+        description: "Device ID from session"
+
+      - name: session_location_id
+        data_type: number
+        description: "Location ID from session"
+
+      - name: os_id
+        data_type: number
+        description: ""
+
+      - name: device_type_id
+        data_type: number
+        description: ""
+
+      - name: os_version
+        data_type: varchar
+        description: ""
+
+      - name: device_name
+        data_type: varchar
+        description: ""
+
+      - name: device_family_id
+        data_type: number
+        description: ""
+
+      - name: device_family
+        data_type: varchar
+        description: ""
+
+      - name: os_name
+        data_type: varchar
+        description: ""
+
+      - name: ip_address
+        data_type: varchar
+        description: ""
+
+      - name: city_id
+        data_type: number
+        description: ""
+
+      - name: country_id
+        data_type: number
+        description: ""
+
+      - name: region_id
+        data_type: number
+        description: ""
+
+      - name: city_name
+        data_type: varchar
+        description: ""
+
+      - name: region_name
+        data_type: varchar
+        description: ""
+
+      - name: country_name
+        data_type: varchar
+        description: ""

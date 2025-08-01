@@ -1,33 +1,27 @@
 # Amplitude ELT Pipeline
 
-A full Amplitude ELT pipeline using **Python**, **Snowflake**, and **dbt** to extract, load, and transform event-level analytics data into structured, analytics-ready tables.
+A full Amplitude ELT pipeline using **Python**, **Snowflake**, **dbt**, and **Kestra** to extract, load, and transform event-level analytics data into structured, analytics-ready tables.
 
 ---
 
 ## Python Script: `main.py`
-A simple Python script that:
-- Extracts campaign and email activity data from the Mailchimp API
-- Stores the data as raw JSON files in:
-  - data/email_activity/
-  - data/campaigns/
-- Uploads only the most recent file from each folder to an S3 bucket
-- Deletes the local files after upload
+A Python script that:
+- Extracts event data from the Amplitude Export API
+- Unzips the `.zip` response into individual JSON files
+- Uploads each file to an S3 bucket
+- Deletes local files after upload
 
 ---
 
 ## Functions
 
- ### `extract_mailchimp_data()`
-- Calls the Mailchimp Marketing API
-- Saves JSON responses into:
-  - `data/email_activity/`
-  - `data/campaigns/`
-- Includes error handling and logging
+ ### `extract_amplitude_data(start_date, end_date, api_key, secret_key)`
+- Calls the Amplitude Export API for a given date range
+- Downloads a `.zip` file of event data
 
-### `load_to_s3()`
-- Identifies the most recent `.json` file in each subfolder
-- Uploads it to a defined S3 bucket location
-- Deletes the local file after successful upload
+### `unzip_json_files(zip_path)`
+- Unzips the downloaded archive
+- Saves each JSON file to the `data/` folder
 
 ---
 
@@ -39,7 +33,7 @@ A simple Python script that:
 4. Run the ETL script:
 
 ```bash
-python mailchimp_extract_and_load.py
+python main.py
 ```
 
 ---
@@ -49,10 +43,10 @@ python mailchimp_extract_and_load.py
 Create a `.env` file in the root directory with the following:
 
 ```dotenv
-MAILCHIMP_API_KEY=your_key_here
-MAILCHIMP_SERVER_PREFIX=usX
-AWS_ACCESS_KEY_ID=your_aws_access_key
-AWS_SECRET_ACCESS_KEY=your_aws_secret
+AMP_API_KEY=your_amplitude_api_key
+AMP_SECRET_KEY=your_amplitude_secret_key
+AWS_ACCESS_KEY=your_aws_access_key
+AWS_SECRET_KEY=your_aws_secret
 AWS_BUCKET_NAME=your_bucket_name
 ```
 
@@ -73,14 +67,23 @@ pip install -r requirements.txt
 You can test the functions on their own by importing them in an interactive session or script:
 
 ```python
-from modules.extract_mailchimp_data import extract_mailchimp_data
-from modules.load_to_s3 import load_to_s3
+from modules.extract_amplitude_files import extract_amplitude_data
+from modules.unzip_json import unzip_json_files
 
-extract_mailchimp_data()
-load_to_s3()
+extract_amplitude_data("20250801T00", "20250801T23", api_key, secret_key)
+unzip_json_files("data.zip")
 ```
 
 ---
+
+## Kestra Orchestration
+This pipeline is orchestrated using Kestra. A Kestra flow YAML is provided to automatically:
+- Clone this repo
+- Install dependencies
+- Run main.py inside a Docker container
+
+
+
 
 ## Notes
 

@@ -1,4 +1,4 @@
-# Amplitude ELT Pipeline
+# Amplitude Pipeline
 
 A full Amplitude ELT pipeline using **Python**, **Snowflake**, **dbt**, and **Kestra** to extract, load, and transform event-level analytics data into structured, analytics-ready tables.
 

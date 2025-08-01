@@ -141,5 +141,6 @@ The dbt layer transforms and organizes your Snowflake data using the medallion a
     ├── staging/
     ├── intermediate/
     └── marts/
-
+└── kestra/                   # Kestra YAML flow definition
+    └── amplitude_api_github.yml
 ```

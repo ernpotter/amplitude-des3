@@ -1,0 +1,26 @@
+with source as (
+    select * from {{ source('ep_dthree_staging', 'amplitude_events_list') }}
+),
+
+renamed as (
+
+    select distinct
+        "_airbyte_extracted_at" _airbyte_extracted_at,
+        "id" event_list_id,
+        "name" event_name,
+        -- "hidden" hidden,
+        -- "totals" ,
+        -- "deleted",
+        -- "autohidden",
+        -- "non_active",
+        -- "flow_hidden",
+        -- "in_waitroom",
+        -- "totals_delta",
+        -- "clusters_hidden",
+        -- "timeline_hidden"
+
+    from source
+
+)
+
+select * from renamed

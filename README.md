@@ -82,15 +82,6 @@ This pipeline is orchestrated using Kestra. A Kestra flow YAML is provided to au
 - Install dependencies
 - Run main.py inside a Docker container
 
-
-
-
-## Notes
-
-- Only the most recent JSON file in each folder is uploaded to S3
-- Files are deleted locally after successful upload
-- The full process is handled in a single script (mailchimp_extract_and_load.py) that calls both functions
-
 ---
 
 ## Snowflake + SQL Pipeline
